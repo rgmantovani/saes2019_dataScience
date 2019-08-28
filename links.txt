@@ -13,3 +13,10 @@ https://www.openml.org
 
 * RStudio
 https://www.rstudio.com
+
+* Ferramentas em R para Data Science
+https://www.tidyverse.org
+
+* Livros de Data Science em R
+https://r4ds.had.co.nz
+
