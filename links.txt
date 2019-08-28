@@ -1,0 +1,15 @@
+* Página principal do mlrl:
+https://github.com/mlr-org/mlr
+
+* Tutoriais do mlr:
+https://mlr-org.github.io/mlr/
+https://mlr-org.github.io/mlr/articles/wrapper.html
+https://mlr-org.github.io/mlr/articles/integrated_learners.html
+https://mlr-org.github.io/mlr/articles/measures.html
+https://mlr-org.github.io/mlr/articles/advanced_tune.html
+
+* Repositorio OpenML
+https://www.openml.org
+
+* RStudio
+https://www.rstudio.com
