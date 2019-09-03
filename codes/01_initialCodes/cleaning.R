@@ -68,13 +68,19 @@ ggplot(data = new.dataset) +
   geom_boxplot(mapping = aes(x = overall_danger_index, 
      y = slow_wave, group = overall_danger_index))
 
-# 3 - Normalizar os dados, deixando eles na mesma escala
+# 3 - Remover atributos correlacionados
+View(new.dataset)
+
+aux = new.dataset[,-ncol(new.dataset)]
+df = cor(data.matrix(aux))
+hc = caret::findCorrelation(df, cutoff = 0.80, verbose = FALSE)
+new.dataset = new.dataset[, -c(hc)]
+View(new.dataset)
+
+# 4 - Normalizar os dados, deixando eles na mesma escala
 norm.dataset = normalizeFeatures(obj = new.dataset, 
   target = "overall_danger_index", method = "standardize")
 
 ggplot(data = norm.dataset) + geom_boxplot(mapping = aes(x = overall_danger_index, 
   y = slow_wave, group = overall_danger_index))
-
-#4 - Remover atributos correlacionados
-
 
