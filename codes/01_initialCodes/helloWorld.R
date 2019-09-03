@@ -3,6 +3,7 @@ library(ggplot2)
 
 # acessando o dataset
 mpg
+View(mpg)
 
 # contando numero de linhas do dataset
 nrow(mpg)
