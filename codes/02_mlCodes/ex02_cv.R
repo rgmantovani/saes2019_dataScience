@@ -14,7 +14,9 @@ colnames(dataset)[ncol(dataset)] = "Species"
 
 # Plotar a distribuicao de classes
 ggplot(data = dataset) + geom_bar(aes(x = Species, 
-  colour = Species, fill = Species))
+  colour = Species, fill = Species)) + 
+  scale_fill_manual(values = c("blue", "black", "red")) + 
+  scale_colour_manual(values = c("blue", "black", "red"))
 
 # criar uma taerfa de classificacao
 task = makeClassifTask(data = dataset, target = "Species")
@@ -25,15 +27,15 @@ print(task)
 algo = makeLearner(cl = "classif.rpart")
 print(algo)
 
-# Dividir os dados do dataset em treino e teste
-rdesc = makeResampleDesc("Holdout", split = 2/3)
+# Dividir os dados do dataset em treino e teste, e rodar varias permutacoes
+rdesc = makeResampleDesc(method = "CV", iters = 10, stratify = TRUE)
 
 # Medidas de desempenho para avaliar os resultados
 measures = list(acc, bac)
 
 # Rodar o algoritmo na tarefa e coletar os resultados
 result = resample(learner = algo, task = task, resampling = rdesc,
-  measures = measures, show.info = TRUE)
+                  measures = measures, show.info = TRUE)
 result
 
 # mostrando o resultado
