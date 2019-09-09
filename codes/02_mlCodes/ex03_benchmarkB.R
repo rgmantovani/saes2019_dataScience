@@ -57,6 +57,6 @@ plotBMRBoxplots(bmr, measure = bac, style = "violin", pretty.names = FALSE,
   theme(strip.text.x = element_text(size = 8))
 
 # Calcular teste estatistico e verificar a significancia dos resultados
-g = generateCritDifferencesData(bmr, p.value = 0.1, test = "nemenyi")
+g = generateCritDifferencesData(bmr, p.value = 0.05, test = "nemenyi")
 plotCritDifferences(g) + coord_cartesian(xlim = c(-1,5), ylim = c(0,2))
 #+ scale_colour_manual(values = c("lda" = "black", "svm" = "red", "rpart" = "blue", "randomForest" = "green"))

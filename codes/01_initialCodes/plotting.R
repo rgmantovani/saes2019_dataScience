@@ -2,9 +2,11 @@
 library(ggplot2)
 
 #mostra o dataset
-mpg
-
-# plotando scatter plot com x = mpg$dipl e y = mph$hwy
+ mpg
+View(mpg)
+?mpg
+ 
+# plotando scatter plot com x = mpg$displ e y = mph$hwy
 ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy))
 
 # adicionando a cor das classes

@@ -14,8 +14,7 @@ colnames(dataset)[ncol(dataset)] = "Species"
 
 # Plotar a distribuicao de classes
 ggplot(data = dataset) + geom_bar(aes(x = Species, 
-  colour = Species, fill = Species)) + 
-  scale_fill_manual(values = c("blue", "black", "red")) + 
+  colour = Species, fill = Species)) +   scale_fill_manual(values = c("blue", "black", "red")) + 
   scale_colour_manual(values = c("blue", "black", "red"))
 
 # criar uma taerfa de classificacao
@@ -24,7 +23,8 @@ print(task)
 
 # Iniciar um algoritmo para classificar algorithm
 #algo = makeLearner(cl = "classif.randomForest", predict.type = "prob")
-algo = makeLearner(cl = "classif.rpart")
+# algo = makeLearner(cl = "classif.rpart")
+algo = makeLearner(cl = "classif.knn")
 print(algo)
 
 # Dividir os dados do dataset em treino e teste, e rodar varias permutacoes
@@ -56,3 +56,4 @@ df2$id = as.factor(df2$id)
 ggplot(data = df2) + geom_tile(aes(x = id, y = variable, fill = value)) + 
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) + 
   scale_fill_manual(values = c("blue", "black", "red"))
+

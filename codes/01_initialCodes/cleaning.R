@@ -21,7 +21,7 @@ View(dataset)
 # Verificar os problemas que podemos ter com os dados
 # 1 - atributos (features) desnecessarios -> ids
 teste = apply(dataset, 2, unique)
-lapply(teste, length)
+unlist(lapply(teste, length))
 
 # 'species' e um atributo do tipo identificador, 
 # ele nao adiciona nada na resolucao do problema
@@ -46,13 +46,13 @@ dataset$gestation_time
 dataset$slow_wave
 
 # solucao simples: numericos --> mediana da coluna
-obj = impute(obj = dataset, target = "overall_danger_index", 
+obj = mlr::impute(obj = dataset, target = "overall_danger_index", 
              classes = list(numeric = imputeMedian()))
 
 # Outras formas:
 #imputeMax()             // imputa o maior valor
 #imputeMean()            // imputa a media   
-#imputeConstant()        // impute um valor constante
+#imputeConstant(valor)        // impute um valor constante
 #imputeMin()             // imputa o menor valor  
 #imputeMode()            // imputa a moda (elemento mais frequente)
 
